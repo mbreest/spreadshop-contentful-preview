@@ -44,36 +44,6 @@ const Entry = (props: EditorProps) => {
       })      
     });                  
     
-  } else if (sdk.contentType.sys.id === "pageProduct") { 
-    url = ``;        
-    new Promise((resolve, reject) => {
-      sdk.space.getEntries({
-        limit: 1,
-        include: 10,
-        locale: locale,
-        content_type: 'page',
-        'fields.content.sys.id': sdk.entry.getSys().id,
-        order: 'sys.createdAt',
-      }).then(entries => {
-        const slug = (entries.items[0] as any).fields.slug[locale];
-        document!.getElementById("preview")!.setAttribute("src", `https://spreadshop-contentful-demo.vercel.app/productrange/detail/${slug}?preview=1&segment=default`);
-      })      
-    });                      
-  } else if (sdk.contentType.sys.id === "pageHelpdeskArticle") { 
-    url = ``;        
-    new Promise((resolve, reject) => {
-      sdk.space.getEntries({
-        limit: 1,
-        include: 10,
-        locale: locale,
-        content_type: 'page',
-        'fields.content.sys.id': sdk.entry.getSys().id,
-        order: 'sys.createdAt',
-      }).then(entries => {
-        const slug = (entries.items[0] as any).fields.slug[locale];
-        document!.getElementById("preview")!.setAttribute("src", `https://spreadshop-contentful-demo.vercel.app/helpdesk/${slug}?preview=1&segment=default`);
-      })      
-    });                      
   } else if (sdk.contentType.sys.id === "pageHelpdeskArticle") { 
     url = ``;        
     new Promise((resolve, reject) => {
